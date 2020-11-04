@@ -9,7 +9,22 @@ def merge_sort(arr)
 end
 
 def merge(left, right, result = [])
-  
+  loop do
+    if left.first < right.first
+      result << left.shift
+    else
+      result << right.shift
+    end
+
+    if left.empty?
+      result.concat(right)
+      break
+    elsif right.empty?
+      result.concat(left)
+      break
+    end
+  end
+  result
 end
 
 p merge_sort([8, 3, 2, 9, 7, 1, 5, 4, 6])
